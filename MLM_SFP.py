@@ -20,7 +20,7 @@ import torch.nn.functional as F
 from sklearn.cluster import MiniBatchKMeans, KMeans, AgglomerativeClustering, SpectralClustering 
 import itertools  
 
-import alignment_C as Aln_C
+# import alignment_C as Aln_C
 
 random.seed(10)
 torch.manual_seed(1234)
@@ -275,7 +275,7 @@ def objective():
         config.adam_lr = 1e-4
     model = train.model_device(model)
     if args.pretraining:
-        model.load_state_dict(torch.load(args.pretraining))
+        model.load_state_dict(torch.load(args.pretraining, map_location=torch.device('cpu')))
     optimizer = optim.AdamW([{'params': model.parameters(), 'lr': config.adam_lr}])
     return model , optimizer, train, config
 
