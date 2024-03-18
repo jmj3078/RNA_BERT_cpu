@@ -16,9 +16,9 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/mjcho/.conda/envs/RNABERT/lib/
 
 BATCH_SIZE=$1
 
-export PRED_FILE=/data/project/mjcho/project2_ASO_ML/codes/DL_model/notebooks/Embedding/aso_sequences_combined.fasta
-export PRE_WEIGHT=/data/project/mjcho/project2_ASO_ML/codes/DL_model/notebooks/Embedding/RNABERT/bert_mul_3.pth
-export OUTPUT_FILE=/data/project/mjcho/project2_ASO_ML/codes/DL_model/notebooks/Embedding/ASO_embedded_$BATCH_SIZE.RNABERT.txt
+export PRED_FILE=/data/project/mjcho/project2_ASO_ML/codes/DL_model/Embedding/aso_validation_invivo.fasta
+export PRE_WEIGHT=/data/project/mjcho/project2_ASO_ML/codes/DL_model/Embedding/RNABERT/RNABERT/bert_mul_3.pth
+export OUTPUT_FILE=/data/project/mjcho/project2_ASO_ML/codes/DL_model/Embedding/VALIDATE_INVIVO_$BATCH_SIZE.RNABERT.txt
 
 python MLM_SFP.py \
     --pretraining ${PRE_WEIGHT} \
